@@ -2,7 +2,9 @@
 ============
 
 This jQuery plugin disallow users to send form with to much uppercased letters
-and when the caps lock is on
+and when the caps lock is on.
+
+[View demo](http://npsr.github.io/antishout.js/)
 
 Usage
 ====
