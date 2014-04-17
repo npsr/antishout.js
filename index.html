@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>!AntiShout demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <form action="#">
+
+        	<h1>	
+        		!AntiShout.js
+        		<a href="http://github.com/npsr/antishout.js">&laquo; back to github project</a>
+        	</h1>
+
+            <p>
+                <label>Text input:</label>
+                <input type="text" placeholder="Try me">
+            </p>            
+            <p>
+                <label>Textarea:</label>
+                <textarea placeholder="And me too"></textarea>
+            </p>
+
+            <div class="message"></div>
+
+            <button type="submit" disabled>send</button>
+
+        </form>
+        
+        <!-- load scripts -->
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+        <script src="antishout.js"></script>
+        
+        <!-- antishout init -->
+        <script>
+            $(function(){
+               $('form').antishout();
+            });
+        </script>
+            
+    </body>
+</html>
