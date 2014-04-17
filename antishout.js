@@ -134,7 +134,7 @@
                  */
                 function clearAlert()
                 {
-                    $$.alertBox.text('').hide();
+                    $$.alertBox.hide();
                 }
                 
                  /**
@@ -166,7 +166,7 @@
                     {
                         var $this = $(this);                      
                         
-                        $this.on('keypress', function(e)
+                        $this.on('keydown', function(e)
                         {                            
                             if(capsLock(e)) {
                                 showAlert(options.capsLockOnAlert); 
@@ -207,8 +207,6 @@
                 if(options.listen.textarea) { 
                     listen('textarea', options.minChars.textarea);
                 }    
-                
-                
                 
             });
         }
