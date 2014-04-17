@@ -112,12 +112,9 @@
                 function checkUppercaseRatio(string)
                 {
                     $$.uCLetters        = string.replace(/[^A-Z]/g, "").length;
-                    $$.uCLettersRatio   = 100 * $$.uCLetters / $$.i;
+                    $$.uCLettersRatio   = 100 * $$.uCLetters / $$.i;                   
                     
-                    console.log('ratio: ' + $$.uCLettersRatio);
-                    
-                    return ($$.uCLettersRatio < options.upperCaseRatio) ? true : false;                 
-                    
+                    return ($$.uCLettersRatio < options.upperCaseRatio) ? true : false;                    
                 };
 
                 /**
@@ -128,7 +125,7 @@
                  */
                 function showAlert(alert)
                 {
-                    $$.alertBox.text(alert);
+                    $$.alertBox.text(alert).show();
                 }
                 
                 /**
@@ -137,7 +134,7 @@
                  */
                 function clearAlert()
                 {
-                    $$.alertBox.text('');
+                    $$.alertBox.text('').hide();
                 }
                 
                  /**
@@ -219,7 +216,7 @@
 })({
     
         // Messages
-	capsLockOnAlert     : 'Your caps lock is on! Please disable it!',
+	    capsLockOnAlert     : 'Your caps lock is on! Please disable it!',
         toMuchUpperCased    : 'Too much uppercased letters!',
         
         // How much percent of uppercase can be in the string
