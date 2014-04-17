@@ -26,7 +26,7 @@ $(function()
 })
 ```
 
-**Try it with options**
+**Try it with options:**
 
 ```
 var options = {
@@ -52,6 +52,6 @@ var options = {
 
 $(function()
 {
-    $('form_selector').antishout(options)
+    $('form_selector').antishout(options);
 })
 ```
