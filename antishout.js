@@ -134,7 +134,7 @@
                  */
                 function clearAlert()
                 {
-                    $$.alertBox.hide();
+                    $$.alertBox.text('').hide();
                 }
                 
                  /**
