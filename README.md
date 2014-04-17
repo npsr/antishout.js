@@ -20,10 +20,10 @@ Usage
 **Fire it up:**
 
 ```
-$(function())
+$(function()
 {
     $('form_selector').antishout();
-}
+})
 ```
 
 **Try it with options**
@@ -50,8 +50,8 @@ var options = {
                           }
 }
 
-$(function())
+$(function()
 {
     $('form_selector').antishout(options)
-}
+})
 ```
