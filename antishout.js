@@ -93,7 +93,7 @@
 				 */
 				function checkUppercaseRatio(string)
 				{
-					$$.uCLetters        = string.replace(/[^A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]/g, "").length;
+					$$.uCLetters        = string.replace(/[^A-Z-ŻŹĆĄŚĘŁÓŃ]/g, "").length;
 					$$.uCLettersRatio   = 100 * $$.uCLetters / $$.i;                   
 					
 					return ($$.uCLettersRatio < options.upperCaseRatio) ? true : false;                    
