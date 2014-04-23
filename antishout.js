@@ -20,8 +20,7 @@
  * - With options:
  * 
  * var options = {
- *      // Messages
- *	capsLockOnAlert     : 'Your caps lock is on! Please disable it!',
+ *      // Messages *	    
  *      toMuchUpperCased    : 'Too much uppercased letters!',
  *      
  *      // How much percent of uppercase can be in the string
@@ -80,27 +79,10 @@
                 var $$ = {
                   form              : $(this),
                   alertBox          : $(this).find('.message'),
-                  keyCode           : false,
-                  shiftKey          : false,
                   i                 : 0,
                   uCLetters         : 0,
-                  uCLettersRatio    : 0,
-                  lock              : true
-                };               
-                
-                /**
-                 * Check is caps lock on
-                 * =============================================================
-                 * 
-                 * @param {event} e
-                 * @returns {Boolean|$$.shiftKey}
-                 */
-                function capsLock(e) 
-                {                                    
-                    $$.keyCode      = e.keyCode ? e.keyCode : e.which;
-                    $$.shiftKey     = e.shiftKey ? e.shiftKey : (($$.keyCode == 16) ? true : false);
-                    return ((($$.keyCode >= 65 && $$.keyCode <= 90) && !$$.shiftKey) || (($$.keyCode >= 97 && $$.keyCode <= 122) && $$.shiftKey));
-                };                
+                  uCLettersRatio    : 0                  
+                };          
 
                 /**
                  * Check is ratio UpperCase to LowerCase allowed
@@ -164,18 +146,7 @@
                     
                     $$.form.find(element).each(function()
                     {
-                        var $this = $(this);                      
-                        
-                        $this.on('keydown', function(e)
-                        {                            
-                            if(capsLock(e)) {
-                                showAlert(options.capsLockOnAlert); 
-                                $$.lock = true;
-                            } else {
-                                clearAlert();
-                                $$.lock = false;
-                            }                    
-                        });
+                        var $this = $(this);                        
                         
                         $this.on('keyup', function()
                         {
@@ -184,17 +155,14 @@
                             if($$.i >= minChars) {
                                 if(!checkUppercaseRatio($this.val())) {                              
                                     showAlert(options.toMuchUpperCased); 
-                                    $$.lock = true;
+                                    lockSubmit();
                                 } else {
                                     clearAlert();
-                                    $$.lock = false;
-                                }
-                                
-                                if(!$$.lock) {
                                     unlockSubmit();
-                                } else {
-                                    lockSubmit();
-                                }
+                                }                              
+                                
+                            } else {
+                                lockSubmit();
                             }
                         });
                     });
@@ -213,8 +181,7 @@
     });
 })({
     
-        // Messages
-	    capsLockOnAlert     : 'Your caps lock is on! Please disable it!',
+        // Messages	    
         toMuchUpperCased    : 'Too much uppercased letters!',
         
         // How much percent of uppercase can be in the string

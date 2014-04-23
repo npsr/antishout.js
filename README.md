@@ -30,8 +30,7 @@ $(function()
 
 ```
 var options = {
-    // Messages
-    capsLockOnAlert     : 'Your caps lock is on! Please disable it!',
+    // Messages    
     toMuchUpperCased    : 'Too much uppercased letters!',
     
     // How much percent of uppercase can be in the string
