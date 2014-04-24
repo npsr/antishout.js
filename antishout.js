@@ -80,24 +80,45 @@
 				  form              : $(this),
 				  alertBox          : $(this).find('.message'),
 				  i                 : 0,
+				  c 				: 0,
 				  uCLetters         : 0,
 				  uCLettersRatio    : 0                  
 				};          
 
 				/**
+				 * Check is letter is uppercased
+				 * =============================================================
+				 *
+				 * @param string
+				 * @returns {boolean}
+				 */
+				function isUpperCase(letter) {
+					return letter === letter.toUpperCase();
+				};
+
+				/**
 				 * Check is ratio UpperCase to LowerCase allowed
 				 * =============================================================
-				 * 
+				 *
 				 * @param {string} string
 				 * @returns {Boolean}
 				 */
 				function checkUppercaseRatio(string)
 				{
-					$$.uCLetters        = string.replace(/[^A-Z-ŻŹĆĄŚĘŁÓŃ]/g, "").length;
-					$$.uCLettersRatio   = 100 * $$.uCLetters / $$.i;                   
-					
-					return ($$.uCLettersRatio < options.upperCaseRatio) ? true : false;                    
-				};
+					$$.uCLetters = '';
+
+					for($$.c = 0; $$.c < string.length; $$.c++ )
+					{
+						if(isUpperCase(string.charAt($$.c)))
+						{
+							$$.uCLetters += string.charAt($$.c);
+						}
+					}
+
+					$$.uCLettersRatio   = 100 * $$.uCLetters.length / $$.i;
+
+					return ($$.uCLettersRatio < options.upperCaseRatio) ? true : false;
+				}
 
 				/**
 				 * Display message
